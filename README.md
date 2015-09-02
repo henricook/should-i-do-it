@@ -6,5 +6,7 @@ Setup an AWS account, configure an API Gateway resource called 'getCrime', add a
 
 Deploy the API. Note the URL and update the address in the javascript of index.html
 
+Go through the painful process of setting up CORS - http://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-cors.html
+
 Deploy files to a web root and open index.html
 
