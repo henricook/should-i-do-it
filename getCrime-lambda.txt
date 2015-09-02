@@ -1,0 +1,24 @@
+# Load this into API Gateway/Lambda called 'getCrime' with the GET method
+
+console.log('Loading function');
+
+exports.handler = function(event, context) {
+    console.log('Received event:', JSON.stringify(event, null, 2));
+
+    var crimeId = event.crimeId
+
+    switch (crimeId) {
+        case 'theft-car':
+            // var sentence = {"sentence": "5 years"};
+            context.succeed("5 years");
+            break;
+        case 'robbery-shop':
+            // var sentence = {"sentence": "10 years"};
+            context.succeed("10 years");
+            break;
+        default:
+            context.fail(new Error('Unrecognized operation "' + operation + '" event:' + JSON.stringify(context, null, 2)));
+    }
+};
+
+console.log('Ended')
