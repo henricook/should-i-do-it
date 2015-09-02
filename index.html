@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Should I do it? Crime information</title>
+    <script type="text/javascript">
+        function updateCrimeInfo() {
+            xmlhttp=new XMLHttpRequest();
+            var e = document.getElementById('crimeSelector');
+            xmlhttp.open("GET","https://muvtxhlpa4.execute-api.eu-west-1.amazonaws.com/prod/crime/"+ e.options[e.selectedIndex].value, false);
+            xmlhttp.send();
+            document.getElementById("result").innerHTML = xmlhttp.responseText;
+            document.getElementById("resultwrapper").style.display = "block";
+            return true;
+        }
+    </script>
+</head>
+<body>
+    <div style="text-align: center; margin: 0 auto">
+        <h1>Should I do it?</h1>
+        <img src="prisoner.gif" style="width: 150pt" />
+        <h3>
+           Crime Prevention through self-directed fact acquisition
+        </h3>
+        <div id="resultwrapper" style="background-color: lightcoral; width: 400pt; margin: 0 auto; display: none; text-align: center; padding: 20pt; font-size: 20pt; color: white;">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/b/bc/3D_png_Judges_Gavel.png" alt="Gavel" style="width: 100pt" />
+            <div id="result">
+
+            </div>
+            ... I probably wouldn't!
+        </div>
+        <div style="margin-top: 3em;">
+            Select a crime for information:
+            <select id="crimeSelector" onchange="javascript:updateCrimeInfo();">
+                <option value="theft-car">Stealing a car</option>
+                <option value="robbery-shop">Robbing a McDonalds</option>
+                <option value="assault-personal">Tripping up an old person</option>
+            </select>
+        </div>
+        <div id="crimeInformation" style="width: 500pt">
+
+        </div>
+    </div>
+</body>
+</html>
